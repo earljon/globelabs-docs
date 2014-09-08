@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://www.globelabs.com.ph/api-guide/payment-docs/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>API Guide - GlobeLabs API</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">GlobeLabs API</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SMS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../sms-docs/">API Guide</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Payment <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li class="active">
+                                <a href="./">API Guide</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="../../about/license/">License</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li >
+                    <a rel="next" href="../sms-docs/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../about/license/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/earljon/globelabs-docs">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#getting-started">Getting Started</a></li>
+        
+            <li><a href="#authentication">Authentication</a></li>
+        
+            <li><a href="#charge">Charge</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="introduction">Introduction</h1>
+<p>The Globe Payment API lets you develop client applications to charge people using the most basic form of electronic communication. This document describes how to use the OAUTH/RESTful calling style and client libraries for varrefuious programming languages (currently Java, Python, PHP, NodeJS and Ruby) to charge subscribers. For other languages and libraries you can access the Payment protocol manually. The following documentation describes how you can access the Payment API directly with examples of request types, options and responses.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>The first thing we need to do is obtain an <strong>APP ID</strong> and <strong>APP SECRET</strong> from <a href="http://developer.globelabs.com.ph/users/login">Globe's Developer Website</a>. When visiting the link provided you should see a login form similar to <em>Figure PROTO.PAYMENT.1</em>.</p>
+<h4 id="figure-protopayment1-login">Figure PROTO.PAYMENT.1 - Login</h4>
+<p><img alt="Login Screen" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/login.jpg" /></p>
+<hr />
+<blockquote>
+<p>Note:<br />
+Currently Globe's RESTful API is in BETA Mode. Ask your local Globe support to gain access to this BETA.</p>
+</blockquote>
+<p>Next, login with your given credentials to get to the APP screen. When you get to the app screen scroll to the bottom right and click the "create" button to create a new app. You should see something familiar to <em>Figure PROTO.PAYMENT.2</em></p>
+<h4 id="figure-protopayment2-create-app-button">Figure PROTO.PAYMENT.2 - Create App Button</h4>
+<h1><img alt="Create App Button" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/create.jpg" /></h1>
+<p>This will bring you to a form with required information that Globe will need to process your app creation. Fill out this form with the required fields at the very least and press Submit found at the bottom right in <em>Figure PROTO.PAYMENT.3</em>.</p>
+<h4 id="figure-protopayment3-create-app-form">Figure PROTO.PAYMENT.3 - Create App Form</h4>
+<p><img alt="Create App Form" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/form.jpg" /></p>
+<hr />
+<blockquote>
+<p>Important:<br />
+It's important that the Redirect URI and the Notify URI are using actual 
+URLs as in http://www.example.com/callback. Globe will call these URLs as described in the field.</p>
+</blockquote>
+<p>From here you should be returned to the APP Detail Page in <em>Figure PROTO.PAYMENT.4</em>. The important thing here is the <strong>APP ID</strong> and <strong>APP SECRET</strong>. These will be the information that you will need to manually set in the configurations when writing your application.</p>
+<h4 id="figure-protopayment4-app-details">Figure PROTO.PAYMENT.4 - App Details</h4>
+<p><img alt="Create App Form" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/detail.jpg" /></p>
+<hr />
+<blockquote>
+<p>Note:<br />
+The data in this screen doesn't actually work. Please don't assume something went 
+wrong because you tried to use it.</p>
+</blockquote>
+<h2 id="authentication">Authentication</h2>
+<p>Once we obtain the <strong>APP ID</strong> and <strong>APP SECRET</strong> we can begin to understand how the authentication works. Globe uses <a href="https://developers.google.com/accounts/docs/OAuth2">OAUTH2</a>, a common protocol to authenticate developers to use API protocols. To begin the authentication process you must redirect the user to a formatted URL using your <strong>APP ID</strong> as in <em>Figure PROTO.PAYMENT.5</em>.</p>
+<h4 id="figure-protopayment5-invoke-a-redirection">Figure PROTO.PAYMENT.5 - Invoke a Redirection</h4>
+<pre class="prettyprint well"><code>http://developer.globelabs.com.ph/dialog/oauth?app_id=[YOUR APP ID]
+</code></pre>
+<p>Before invoking your redirect, please replace <code>[YOUR APP ID]</code> in the figure above with your actual <strong>APP ID</strong>. Based on what you inputed as your <strong>Redirect URI</strong> in your app details. Globe will authenticate permissions first with the user which should look like <em>Figure PROTO.PAYMENT.6a</em> and <em>Figure PROTO.PAYMENT.6b</em>.</p>
+<h4 id="figure-protopayment6a-user-flow">Figure PROTO.PAYMENT.6a - User Flow</h4>
+<p><img alt="User Flow" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/user.jpg" /></p>
+<hr />
+<h4 id="figure-protopayment6b-authorize">Figure PROTO.PAYMENT.6b - Authorize</h4>
+<h1><img alt="Authorize" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/user.jpg" /></h1>
+<p>Once the user gives permission, Globe will redirect the user to your Redirect URI with a <code>code</code> parameter appended to the end of it. This is how we recieve the code to continue the authentication process. <em>Figure PROTO.PAYMENT.7</em> shows how this redirect will look like given that we set our redirect URI to <code>http://www.example.com/callback</code> in our app create form in <em>Figure PROTO.PAYMENT.3</em>.</p>
+<hr />
+<blockquote>
+<p>Important:<br />
+It is also possible that a user can give permissions to your app using just their 
+phone via SMS. Globe will call (not a phone call) your redirect URI with <code>access_token</code> and 
+<code>subscriber_number</code> appended to the end of it. From here you can process this request and 
+ignore the rest of the authentication process below.</p>
+</blockquote>
+<h4 id="figure-protopayment7-redirected-uri-sample">Figure PROTO.PAYMENT.7 - Redirected URI Sample</h4>
+<pre class="prettyprint well"><code>http://www.example.com/callback?code=12345
+</code></pre>
+<p><code>12345</code> in the URL figure above is what we need in order to get a more long lasting token for your app to use when making API calls. Everytime you make this call the <code>code</code> returned will be unique, so you should not hard code the <code>code</code> value in your application. The final step in the authentication process is about exchanging your <code>code</code> with a more permanent access token. We need to send Globe one final request shown in <em>Figure PROTO.PAYMENT.8</em></p>
+<h4 id="figure-protopayment8-get-the-access-token">Figure PROTO.PAYMENT.8 - Get the Access Token</h4>
+<pre class="prettyprint well"><code>POST http://developer.globelabs.com.ph/oauth/access_token?app_id=[YOUR APP ID]&amp;app_secret=[YOUR APP SECRET]&amp;code=[CODE]
+</code></pre>
+<p>Before sending, please replace <code>[YOUR APP ID]</code> in the figure above with your actual <strong>APP ID</strong>, replace <code>[YOUR APP SECRET]</code> in the figure above with your actual <strong>APP SECRET</strong> and replace <code>[CODE]</code> in the figure above with the code given from <em>Figure PROTO.PAYMENT.7</em>. </p>
+<hr />
+<blockquote>
+<p>Note:<br />
+Remember set your access token request to globe using the POST method.</p>
+</blockquote>
+<p>Finally, Globe will return an access token you can use to start using the Charge API. <strong>Figure PROTO.PAYMENT.9</strong> shows how this response will look like</p>
+<h4 id="figure-protopayment9-access-token-via-json">Figure PROTO.PAYMENT.9 - Access Token via JSON</h4>
+<pre class="prettyprint well"><code>{
+  "access_token": "GesiE2YhZlxB9VVMhv-PoI8RwNTsmX0D38g",
+  "subscriber_number": "9051234567"'
+}
+</code></pre>
+<hr />
+<blockquote>
+<p>Note: <br />
+The data in above doesn't actually work. Please don't assume something went wrong 
+because you tried to use it.</p>
+</blockquote>
+<h2 id="charge">Charge</h2>
+<p>To use charge API you will need to send a POST request to the URL given below.</p>
+<p><strong>Request URL</strong></p>
+<pre class="prettyprint well"><code>http://devapi.globelabs.com.ph/payment/v1/transactions/amount
+</code></pre>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th align="center">Definition</th>
+<th align="center">Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transactionOperationStatus</td>
+<td align="center">set this field to <code>charged</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>access_token</td>
+<td align="center">which contains security information for transacting with a subscriber. Subscriber needs to grant an app first via SMS or Web Form Subscriber Consent Workflow.</td>
+<td align="center">String</td>
+</tr>
+<tr>
+<td>endUserId</td>
+<td align="center">is the MSISDN (mobile number) which you will charge to. Parameter format can be 09xxxxxxxx</td>
+<td align="center">String or Integer</td>
+</tr>
+<tr>
+<td>amount</td>
+<td align="center">can be a whole number or decimal</td>
+<td align="center">String</td>
+</tr>
+<tr>
+<td>referenceCode</td>
+<td align="center">Is a unique transaction ID with a format of <code>[SHORTCODE]</code>+<code>#######</code> where <code>#######</code> is an incremented number beginning from <code>1000001</code>.</td>
+<td align="center">Integer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>Note:<br />
+You can get your Short Code value from your Globe App Details in <code>Figure PROTO.PAYMENT.4. You also need to remove the</code>2158` digit in your short code.</p>
+</blockquote>
+<h4 id="figure-protopayment10-sample-charge-request">Figure PROTO.PAYMENT.10 - Sample Charge Request</h4>
+<pre class="prettyprint well"><code>POST http://devapi.globelabs.com.ph/payment/v1/transactions/amount
+  -F "transactionOperationStatus=[STATUS]"\
+  -F "access_token=[YOUR ACCESS TOKEN]" \
+  -F "endUserId=[MOBILE NUMBER]" \
+  -F "amount=[AMOUNT]" \
+  -F "referenceCode=[UNIQUE REFERENCE]" \
+</code></pre>
+<h4 id="figure-protopayment11-sample-charge-response">Figure PROTO.PAYMENT.11 - Sample Charge Response</h4>
+<pre class="prettyprint well"><code>{
+  "access_token": "GesiE2YhZlxB9VVMhv-PoI8RwNTsmX0D38g",
+  "transactionOperationStatus": "charged",
+  "endUserId": "9171234567",
+  "amount": "10",
+  "referenceCode": "12341000001",
+  "success": true
+}
+</code></pre>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+        
+    </body>
+</html>
