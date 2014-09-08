@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Globe Labs REST API Documentation.">
         
-        <link rel="canonical" href="http://www.globelabs.com.ph/">
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        
+        <link rel="canonical" href="http://www.globelabs.com.ph/guide/dataquery/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>GlobeLabs API</title>
+        <title>API Guide - GlobeLabs API</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/prettify-1.0.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,7 +26,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -44,7 +44,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">GlobeLabs API</a>
+            <a class="navbar-brand" href="../..">GlobeLabs API</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -54,8 +54,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -65,7 +65,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="guide/sms/">API Guide</a>
+                                <a href="../sms/">API Guide</a>
                             </li>
                         
                         </ul>
@@ -78,7 +78,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="guide/payment/">API Guide</a>
+                                <a href="../payment/">API Guide</a>
                             </li>
                         
                         </ul>
@@ -91,7 +91,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="guide/voice/">API Guide</a>
+                                <a href="../voice/">API Guide</a>
                             </li>
                         
                         </ul>
@@ -104,7 +104,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="guide/lbs/">API Guide</a>
+                                <a href="../lbs/">API Guide</a>
                             </li>
                         
                         </ul>
@@ -112,12 +112,12 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Query <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li >
-                                <a href="guide/dataquery/">API Guide</a>
+                            <li class="active">
+                                <a href="./">API Guide</a>
                             </li>
                         
                         </ul>
@@ -130,7 +130,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="about/license/">License</a>
+                                <a href="../../about/license/">License</a>
                             </li>
                         
                         </ul>
@@ -167,12 +167,7 @@
     
         <li class="main active"><a href="#introduction">Introduction</a></li>
         
-    
-        <li class="main "><a href="#contributing-to-globe-api">Contributing to Globe API</a></li>
-        
-            <li><a href="#setting-up-your-machine-with-the-globe-api-repository-and-your-fork">Setting up your machine with the Globe API repository and your fork</a></li>
-        
-            <li><a href="#making-pull-requests">Making pull requests</a></li>
+            <li><a href="#todo">TODO</a></li>
         
     
     </ul>
@@ -180,36 +175,9 @@
             <div class="col-md-9" role="main">
 
 <h1 id="introduction">Introduction</h1>
-<p>Welcome to Globe Labs API REST API Documentation! This is a work-in-progress type of documentation and constantly improving to provide you with an easy to understand and complete workflow of how our API works by providing relevant content and examples along the way.</p>
-<h1 id="contributing-to-globe-api">Contributing to Globe API</h1>
-<h2 id="setting-up-your-machine-with-the-globe-api-repository-and-your-fork">Setting up your machine with the Globe API repository and your fork</h2>
-<ol>
-<li>Fork the main Globe API repository (https://github.com/globelabs/api)</li>
-<li>Fire up your local terminal and clone the MAIN GLOBE API REPOSITORY (git clone git://github.com/globelabs/api.git)</li>
-<li>Add your FORKED GLOBE API REPOSITORY as a remote (git remote add fork git@github.com:github_username/api.git)</li>
-</ol>
-<h2 id="making-pull-requests">Making pull requests</h2>
-<ol>
-<li>Before anything, make sure to update the MAIN GLOBE API REPOSITORY. (git checkout master; git pull origin master)</li>
-<li>
-<p>Once updated with the latest code, create a new branch with a branch name describing what your changes are (git checkout -b bugfix/fix-ruby-sms-auth) 
-Possible types:</p>
-</li>
-<li>
-<p>bugfix</p>
-</li>
-<li>language</li>
-<li>feature</li>
-<li>
-<p>improvement</p>
-</li>
-<li>
-<p>Make your code changes. Always make sure to sign-off (-s) on all commits made (git commit -s -m "Commit message")</p>
-</li>
-<li>Once you've committed all the code to this branch, push the branch to your FORKED GLOBE API REPOSITORY (git push fork bugfix/fix-ruby-auth)</li>
-<li>Go back to your FORKED GLOBE API REPOSITORY on GitHub and submit a pull request.</li>
-<li>An Globe API developer will review your code and merge it in when it has been classified as suitable.</li>
-</ol>
+<h2 id="todo">TODO</h2>
+<p>Globe Labs Subscriber Data Query API interface allows a Web application to query the customer profile of an end user who is the customer of a mobile network operator. Currently the information epxosed is subscriber balance.</p>
+<p>Note: This API is still in alpha. For inquiries and concern, kindly email api@globelasbeta.com.</p>
 </div>
         </div>
 
@@ -223,9 +191,9 @@ Possible types:</p>
         
 
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/prettify-1.0.min.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
         
     </body>
 </html>
