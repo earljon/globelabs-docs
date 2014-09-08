@@ -194,15 +194,18 @@
 <p>This will bring you to a form with required information that Globe will need to process your app creation. Fill out this form with the required fields at the very least and press Submit found at the bottom right in <em>Figure PROTO.SMS.3</em>.</p>
 <h4 id="figure-protosms3-create-app-form">Figure PROTO.SMS.3 - Create App Form</h4>
 <p><img alt="Create App Form" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/form.jpg" /></p>
-<pre class="prettyprint well"><code>**Important:** It's important that the Redirect URI and the Notify URI are using actual 
-URLs as in http://www.example.com/callback. Globe will call these URLs as described in the field.
-</code></pre>
+<blockquote>
+<p>IMPORTANT<br />
+It's important that the Redirect URI and the Notify URI are using actual 
+URLs as in http://www.example.com/callback. Globe will call these URLs as described in the field.</p>
+</blockquote>
 <p>From here you should be returned to the APP Detail Page in <em>Figure PROTO.SMS.4</em>. The important thing here is the <strong>APP ID</strong> and <strong>APP SECRET</strong>. These will be the information that you will need to manually set in the configurations when writing your application.</p>
 <h4 id="figure-protosms4-app-details">Figure PROTO.SMS.4 - App Details</h4>
 <p><img alt="Create App Form" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/detail.jpg" /></p>
-<pre class="prettyprint well"><code>**Note:** The data in this screen doesn't actually work. Please don't assume something went 
-wrong because you tried to use it.
-</code></pre>
+<blockquote>
+<p>NOTE<br />
+The data in this screen doesn't actually work. Please don't assume something went wrong because you tried to use it.</p>
+</blockquote>
 <h2 id="authentication">Authentication</h2>
 <p>Once we obtain the <strong>APP ID</strong> and <strong>APP SECRET</strong> we can begin to understand how the authentication works. Globe uses <a href="https://developers.google.com/accounts/docs/OAuth2">OAUTH2</a>, a common protocol to authenticate developers to use API protocols. To begin the authentication process you must redirect the user to a formatted URL using your <strong>APP ID</strong> as in <em>Figure PROTO.SMS.5</em>.</p>
 <h4 id="figure-protosms5-invoke-a-redirection">Figure PROTO.SMS.5 - Invoke a Redirection</h4>
@@ -214,11 +217,13 @@ wrong because you tried to use it.
 <h4 id="figure-protosms6b-authorize">Figure PROTO.SMS.6b - Authorize</h4>
 <p><img alt="Authorize" src="https://raw.github.com/Openovate/rest-docs/master/sms/assets/user.jpg" /></p>
 <p>Once the user gives permission, Globe will redirect the user to your Redirect URI with a <code>code</code> parameter appended to the end of it. This is how we recieve the code to continue the authentication process. <em>Figure PROTO.SMS.7</em> shows how this redirect will look like given that we set our redirect URI to <code>http://www.example.com/callback</code> in our app create form in <em>Figure PROTO.SMS.3</em>.</p>
-<pre class="prettyprint well"><code>**Important:** It is also possible that a user can give permissions to your app using just their 
-phone via SMS. Globe will call (not a phone call) your redirect URI with `access_token` and 
-`subscriber_number` appended to the end of it. From here you can process this request and 
-ignore the rest of the authentication process below.
-</code></pre>
+<blockquote>
+<p>IMPORTANT<br />
+It is also possible that a user can give permissions to your app using just their 
+phone via SMS. Globe will call (not a phone call) your redirect URI with <code>access_token</code> and 
+<code>subscriber_number</code> appended to the end of it. From here you can process this request and 
+ignore the rest of the authentication process below.</p>
+</blockquote>
 <h4 id="figure-protosms7-redirected-uri-sample">Figure PROTO.SMS.7 - Redirected URI Sample</h4>
 <pre class="prettyprint well"><code>http://www.example.com/callback?code=12345
 </code></pre>
@@ -227,8 +232,10 @@ ignore the rest of the authentication process below.
 <pre class="prettyprint well"><code>POST http://developer.globelabs.com.ph/oauth/access_token?app_id=[YOUR APP ID]&amp;app_secret=[YOUR APP SECRET]&amp;code=[CODE]
 </code></pre>
 <p>Before sending, please replace <code>[YOUR APP ID]</code> in the figure above with your actual <strong>APP ID</strong>, replace <code>[YOUR APP SECRET]</code> in the figure above with your actual <strong>APP SECRET</strong> and replace <code>[CODE]</code> in the figure above with the code given from <em>Figure PROTO.SMS.7</em>. </p>
-<pre class="prettyprint well"><code>**Note:** Remember set your access token request to globe using the POST method.
-</code></pre>
+<blockquote>
+<p>NOTE<br />
+Remember set your access token request to globe using the POST method.</p>
+</blockquote>
 <p>Finally, Globe will return an access token you can use to start using the SMS API. <strong>Figure PROTO.SMS.9</strong> shows how this response will look like</p>
 <h4 id="figure-protosms9-access-token-via-json">Figure PROTO.SMS.9 - Access Token via JSON</h4>
 <pre class="prettyprint well"><code>{
@@ -270,9 +277,11 @@ ignore the rest of the authentication process below.
 <pre class="prettyprint well"><code>POST http://devapi.globelabs.com.ph/smsmessaging/v1/outbound/[YOUR SHORT CODE]/requests?access_token=[YOUR ACCESS TOKEN]
   -F "address=[MOBILE NUMBER]" \
   -F "message=[MESSAGE]" \
-
-&gt; Note: You can get your Short Code value from your Globe App Details in `Figure PROTO.SMS.4. You also need to remove the `2158` digit in your short code.
 </code></pre>
+<blockquote>
+<p>NOTE<br />
+You can get your Short Code value from your Globe App Details in <code>Figure PROTO.SMS.4. You also need to remove the</code>2158` digit in your short code.</p>
+</blockquote>
 <h4 id="figure-protosms11-sample-send-message-response">Figure PROTO.SMS.11 - Sample Send Message Response</h4>
 <pre class="prettyprint well"><code>{
   "outboundSMSMessageRequest": {
